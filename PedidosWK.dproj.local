@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2023/04/04 18:02:42.000.353,=C:\Users\Master\Documents\Embarcadero\Studio\Projects\Unit2.pas</Transaction>
+    <Transaction>2023/04/04 18:17:03.000.317,G:\Meu Drive\___Trabalho\Sistemas Projetos\_____Testes\2023-04-04 - WK\Unit2.dfm=C:\Users\Master\Documents\Embarcadero\Studio\Projects\Unit2.dfm</Transaction>
+    <Transaction>2023/04/04 18:17:03.000.317,G:\Meu Drive\___Trabalho\Sistemas Projetos\_____Testes\2023-04-04 - WK\Unit2.pas=C:\Users\Master\Documents\Embarcadero\Studio\Projects\Unit2.pas</Transaction>
+    <Transaction>2023/04/04 18:17:05.000.359,G:\Meu Drive\___Trabalho\Sistemas Projetos\_____Testes\2023-04-04 - WK\Project3.dproj=C:\Users\Master\Documents\Embarcadero\Studio\Projects\Project3.dproj</Transaction>
+    <Transaction>2023/04/04 18:28:41.000.575,=G:\Meu Drive\___Trabalho\Sistemas Projetos\_____Testes\2023-04-04 - WK\Unit1.pas</Transaction>
+    <Transaction>2023/04/04 18:34:16.000.594,G:\Meu Drive\___Trabalho\Sistemas Projetos\_____Testes\2023-04-04 - WK\uDM.dfm=G:\Meu Drive\___Trabalho\Sistemas Projetos\_____Testes\2023-04-04 - WK\Unit1.dfm</Transaction>
+    <Transaction>2023/04/04 18:34:16.000.594,G:\Meu Drive\___Trabalho\Sistemas Projetos\_____Testes\2023-04-04 - WK\uDM.pas=G:\Meu Drive\___Trabalho\Sistemas Projetos\_____Testes\2023-04-04 - WK\Unit1.pas</Transaction>
+    <Transaction>2023/04/04 18:34:30.000.834,G:\Meu Drive\___Trabalho\Sistemas Projetos\_____Testes\2023-04-04 - WK\uPrincipal.dfm=G:\Meu Drive\___Trabalho\Sistemas Projetos\_____Testes\2023-04-04 - WK\Unit2.dfm</Transaction>
+    <Transaction>2023/04/04 18:34:30.000.834,G:\Meu Drive\___Trabalho\Sistemas Projetos\_____Testes\2023-04-04 - WK\uPrincipal.pas=G:\Meu Drive\___Trabalho\Sistemas Projetos\_____Testes\2023-04-04 - WK\Unit2.pas</Transaction>
+    <Transaction>2023/04/24 15:38:29.000.319,=G:\Meu Drive\___Trabalho\Sistemas Projetos\_____Testes\2023-04-04 - WK\Unit3.pas</Transaction>
+    <Transaction>2023/04/24 15:38:53.000.672,G:\Meu Drive\___Trabalho\Sistemas Projetos\_____Testes\2023-04-04 - WK\uClsCliente.pas=G:\Meu Drive\___Trabalho\Sistemas Projetos\_____Testes\2023-04-04 - WK\Unit3.pas</Transaction>
+    <Transaction>2023/04/25 14:19:05.667,=G:\Meu Drive\___Trabalho\Sistemas Projetos\_____Testes\2023-04-04 - WK\Unit3.pas</Transaction>
+    <Transaction>2023/04/25 14:19:20.002,G:\Meu Drive\___Trabalho\Sistemas Projetos\_____Testes\2023-04-04 - WK\uClsProduto.pas=G:\Meu Drive\___Trabalho\Sistemas Projetos\_____Testes\2023-04-04 - WK\Unit3.pas</Transaction>
+    <Transaction>2023/04/25 14:55:15.087,G:\Meu Drive\___Trabalho\Sistemas Projetos\_____Testes\2023-04-04 - WK\PedidosWK.dproj=G:\Meu Drive\___Trabalho\Sistemas Projetos\_____Testes\2023-04-04 - WK\Project3.dproj</Transaction>
+  </Transactions>
+</BorlandProject>

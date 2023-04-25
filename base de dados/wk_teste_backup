@@ -1,0 +1,148 @@
+-- MariaDB dump 10.19  Distrib 10.4.27-MariaDB, for Win64 (AMD64)
+--
+-- Host: localhost    Database: wk_teste
+-- ------------------------------------------------------
+-- Server version	10.4.27-MariaDB
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Current Database: `wk_teste`
+--
+
+CREATE DATABASE /*!32312 IF NOT EXISTS*/ `wk_teste` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci */;
+
+USE `wk_teste`;
+
+--
+-- Table structure for table `clientes`
+--
+
+DROP TABLE IF EXISTS `clientes`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `clientes` (
+  `codigo` int(11) NOT NULL AUTO_INCREMENT,
+  `nome` varchar(200) NOT NULL,
+  `cidade` varchar(100) NOT NULL,
+  `uf` varchar(2) NOT NULL,
+  PRIMARY KEY (`codigo`),
+  KEY `idx_nome` (`nome`)
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `clientes`
+--
+
+LOCK TABLES `clientes` WRITE;
+/*!40000 ALTER TABLE `clientes` DISABLE KEYS */;
+INSERT INTO `clientes` VALUES (1,'João das Couves (1)','São Paulo','SP'),(2,'João das Neves (2)','São Paulo','SP'),(3,'José de Arimatéia (3)','São Paulo','SP'),(4,'Paulo das Couves (4)','São Paulo','SP'),(5,'Rodrigo Joaquim (5)','São Paulo','SP'),(6,'Henrique Silva (6)','São Paulo','SP'),(7,'Valdirene Couves (7)','São Paulo','SP'),(8,'Mariana Couves (8)','São Paulo','SP'),(9,'Maria Silva (9)','São Paulo','SP'),(10,'Joaquina Alvares (10)','São Paulo','SP'),(11,'Valkiria Couves(11)','São Paulo','SP'),(12,'João das Marias (12)','São Paulo','SP'),(13,'Berta Bens (13)','São Paulo','SP'),(14,'Aldeide Pinto (14)','São Paulo','SP'),(15,'Joaquina Valeris (15)','São Paulo','SP'),(16,'Paulo Virtuoso (16)','São Paulo','SP'),(17,'Vigário da Silva (17)','São Paulo','SP'),(18,'João das Ovelhas (18)','São Paulo','SP'),(19,'Nardini (19)','São Paulo','SP'),(20,'Cristiane (20)','São Paulo','SP');
+/*!40000 ALTER TABLE `clientes` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `pedido`
+--
+
+DROP TABLE IF EXISTS `pedido`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `pedido` (
+  `numero` int(11) NOT NULL AUTO_INCREMENT,
+  `emissao` datetime NOT NULL,
+  `cod_cliente` int(11) NOT NULL,
+  `valor_total` decimal(12,2) NOT NULL,
+  PRIMARY KEY (`numero`),
+  KEY `idx_cod_cliente` (`cod_cliente`),
+  CONSTRAINT `fk_Cliente` FOREIGN KEY (`cod_cliente`) REFERENCES `clientes` (`codigo`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `pedido`
+--
+
+LOCK TABLES `pedido` WRITE;
+/*!40000 ALTER TABLE `pedido` DISABLE KEYS */;
+INSERT INTO `pedido` VALUES (2,'0000-00-00 00:00:00',1,53.00);
+/*!40000 ALTER TABLE `pedido` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `pedido_item`
+--
+
+DROP TABLE IF EXISTS `pedido_item`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `pedido_item` (
+  `item` int(11) NOT NULL AUTO_INCREMENT,
+  `numero_pedido` int(11) NOT NULL,
+  `produto` int(11) NOT NULL,
+  `quantidade` decimal(12,3) NOT NULL,
+  `valor_unitario` decimal(12,2) NOT NULL,
+  `valor_total` decimal(12,2) NOT NULL,
+  PRIMARY KEY (`item`),
+  KEY `idx_numero_pedido` (`numero_pedido`),
+  KEY `idx_produto` (`produto`),
+  CONSTRAINT `fk_Pedido` FOREIGN KEY (`numero_pedido`) REFERENCES `pedido` (`numero`),
+  CONSTRAINT `fk_Produto` FOREIGN KEY (`produto`) REFERENCES `produtos` (`codigo`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `pedido_item`
+--
+
+LOCK TABLES `pedido_item` WRITE;
+/*!40000 ALTER TABLE `pedido_item` DISABLE KEYS */;
+INSERT INTO `pedido_item` VALUES (1,2,1,12.000,4.47,53.64);
+/*!40000 ALTER TABLE `pedido_item` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `produtos`
+--
+
+DROP TABLE IF EXISTS `produtos`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `produtos` (
+  `codigo` int(11) NOT NULL AUTO_INCREMENT,
+  `descricao` varchar(200) NOT NULL,
+  `preco_venda` decimal(10,0) NOT NULL,
+  PRIMARY KEY (`codigo`),
+  KEY `idx_descricao` (`descricao`)
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `produtos`
+--
+
+LOCK TABLES `produtos` WRITE;
+/*!40000 ALTER TABLE `produtos` DISABLE KEYS */;
+INSERT INTO `produtos` VALUES (1,'Produto 100',10),(2,'Produto 101',11),(3,'Produto 102',12),(4,'Produto 103',13),(5,'Produto 104',14),(6,'Produto 105',15),(7,'Produto 106',16),(8,'Produto 107',17),(9,'Produto 108',18),(10,'Produto 109',19),(11,'Produto 110',20),(12,'Produto 111',21),(13,'Produto 112',22),(14,'Produto 113',23),(15,'Produto 114',24),(16,'Produto 115',25),(17,'Produto 116',26),(18,'Produto 117',27),(19,'Produto 118',28),(20,'Produto 119',30);
+/*!40000 ALTER TABLE `produtos` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2023-04-25 17:54:10
